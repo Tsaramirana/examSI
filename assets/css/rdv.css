@@ -1,0 +1,25 @@
+#rdv-table {
+    margin-top: 5%;
+    height: 500px;
+    overflow: auto;
+}
+#rdv-table::-webkit-scrollbar {
+    width: 8px;
+}
+#rdv-table::-webkit-scrollbar-track {
+    background: none;
+}
+#rdv-table::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 4px;
+}
+#rdv-table table {
+    border-collapse: collapse;
+}
+#rdv-table table thead, #rdv-table table tbody {
+    color: rgb(230, 227, 227);
+}
+#rdv-table table tbody .btn {
+    background-color: transparent;
+    border: solid 1px rgba(230, 227, 227, 0.466);
+}

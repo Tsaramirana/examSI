@@ -34,7 +34,7 @@ class Login extends CI_Controller {
     }
     else {
       $this->session->set('user', $voiture);
-      $this->load->view('frontOffice/acceuil.php', $data);
+      $this->load->view('frontOffice/acceuil.php');
 
       // redirect('frontOffice/Acceuil/to_acceuil_page');
     }

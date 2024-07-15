@@ -12,6 +12,12 @@ class Horaire_model extends CI_Model {
         $this->load->database();
     }
 
+    // Récupérer l'horaire
+    public function getHoraire() {
+        $query = $this->db->get($this->table);
+        return $query->row_array();
+    }
+
     // Récupérer tous les services
     public function getAll() {
         $query = $this->db->get($this->table);
@@ -41,5 +47,24 @@ class Horaire_model extends CI_Model {
         $this->db->where('id', $id);
         return $this->db->delete($this->table);
     }
+
+    // Mettre à jour le début
+    public function updateDebut($debut) {
+        $this->db->update($this->table, array('debut' => $debut));
+        return $this->db->affected_rows();
+    }
+
+    // Mettre à jour la fin
+    public function updateFin($fin) {
+        $this->db->update($this->table, array('fin' => $fin));
+        return $this->db->affected_rows();
+    }
+
+    // Mettre à jour la date de référence
+    public function updateDateReference($dateReference) {
+        $this->db->update($this->table, array('dateReference' => $dateReference));
+        return $this->db->affected_rows();
+    }
+
 }
 ?>

@@ -25,7 +25,10 @@ class Welcome extends CI_Controller {
 
 	public function test () 
 	{	
-		$this->load->model('voiture_model');
-		echo var_dump($this->voiture_model->informationValide('num2',1));
+		// $this->load->model('voiture_model');
+		// echo var_dump($this->voiture_model->informationValide('num2',-1));
+
+		$this->load->library('pdf');
+        $this->pdf->GeneratePDFForVoiture('100');
 	}
 }

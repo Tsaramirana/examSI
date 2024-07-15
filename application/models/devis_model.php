@@ -1,10 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Horaire_model extends CI_Model {
+class Devis_model extends CI_Model {
 
     // Nom de la table
-    private $table = 'horaire';
+    private $table = 'devis';
 
     // Constructeur
     public function __construct() {
@@ -34,24 +34,6 @@ class Horaire_model extends CI_Model {
     public function update($id, $data) {
         $this->db->where('id', $id);
         return $this->db->update($this->table, $data);
-    }
-
-    // Mettre à jour le champ 'debut'
-    public function updateDebut($id, $debut) {
-        $this->db->where('id', $id);
-        return $this->db->update($this->table, array('debut' => $debut));
-    }
-
-    // Mettre à jour le champ 'fin'
-    public function updateFin($id, $fin) {
-        $this->db->where('id', $id);
-        return $this->db->update($this->table, array('fin' => $fin));
-    }
-
-    // Mettre à jour le champ 'dateReference'
-    public function updateDateReference($id, $dateReference) {
-        $this->db->where('id', $id);
-        return $this->db->update($this->table, array('dateReference' => $dateReference));
     }
 
     // Supprimer un service

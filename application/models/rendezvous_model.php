@@ -130,5 +130,12 @@ class Rendezvous_model extends CI_Model {
         $this->db->where('id', $id);
         return $this->db->delete($this->table);
     }
+
+    // Récupérer les rendez-vous par date
+    public function getByDate($date) {
+        $this->db->where('DATE(dateHeureDebut)', $date);
+        $query = $this->db->get($this->table);
+        return $query->result_array();
+    }
 }
 ?>

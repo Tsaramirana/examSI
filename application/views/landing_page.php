@@ -6,12 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-  <form action="">
-    <input type="text" name="numero" id="">
-    <select name="" id="">
-      <option value="">Legere</option>
-      <option value="">4x4</option>
-    </select>
-  </form>
+  <a href="<?php echo base_url("frontOffice/Login/to_login_page") ?>">Front office</a>
+  <a href="<?php echo base_url("frontOffice/Login/to_login_page") ?>">Back office</a>
 </body>
 </html>

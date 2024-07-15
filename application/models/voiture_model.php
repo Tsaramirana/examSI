@@ -52,7 +52,7 @@ class Voiture_model extends CI_Model {
     public function informationValide ($numero, $idType){ //retourne la voiture en base si les infos sont valides ; sinon null 
         if($numero!='' && $idType >=0){
             $data = $this->getByNumero($numero);
-            if(count($data)){
+            if($data==null){
                 $data = [];
                 $data['numero'] = $numero;
                 $data['idType'] = $idType;

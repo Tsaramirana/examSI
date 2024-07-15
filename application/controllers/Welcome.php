@@ -24,13 +24,8 @@ class Welcome extends CI_Controller {
 	}	
 
 	public function test () 
-	{
-		$data['dateHeureDebut'] = '2024-07-16 08:00:00';
-		$data['idService'] = 1;
-		$data['idVoiture'] = 1;
-		$data['idSlot'] = 1;
-		
-		$this->load->model('rendezvous_model');
-		$this->rendezvous_model->insert($data);
+	{	
+		$this->load->model('voiture_model');
+		echo var_dump($this->voiture_model->informationValide('num2',1));
 	}
 }

@@ -7,6 +7,6 @@
 </head>
 <body>
   <a href="<?php echo base_url("frontOffice/Login/to_login_page") ?>">Front office</a>
-  <a href="<?php echo base_url("frontOffice/Login/to_login_page") ?>">Back office</a>
+  <a href="<?php echo base_url("backOffice/Login/to_login_page") ?>">Back office</a>
 </body>
 </html>

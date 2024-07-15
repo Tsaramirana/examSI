@@ -10,25 +10,25 @@ class HoraireController extends CI_Controller {
 
     public function index() {
         $data['horaire'] = $this->Horaire_model->getHoraire();
-        $this->load->view('horaire_view', $data);
+        $this->load->view('backOffice/horaire_view', $data);
     }
 
     public function updateDebut() {
         $debut = $this->input->post('debut');
         $this->Horaire_model->updateDebut($debut);
-        redirect('HoraireController');
+        redirect('backOffice/HoraireController');
     }
 
     public function updateFin() {
         $fin = $this->input->post('fin');
         $this->Horaire_model->updateFin($fin);
-        redirect('HoraireController');
+        redirect('backOffice/HoraireController');
     }
 
     public function updateDateReference() {
         $dateReference = $this->input->post('dateReference');
         $this->Horaire_model->updateDateReference($dateReference);
-        redirect('HoraireController');
+        redirect('backOffice/HoraireController');
     }
 }
 ?>

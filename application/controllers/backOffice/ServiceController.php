@@ -10,7 +10,7 @@ class ServiceController extends CI_Controller {
 
     public function index() {
         $data['services'] = $this->Service_model->getAll();
-        $this->load->view('service_view', $data);
+        $this->load->view('backOffice/service_view', $data);
     }
 
     public function save() {
@@ -29,18 +29,18 @@ class ServiceController extends CI_Controller {
             $this->Service_model->insert($data);
         }
 
-        redirect('ServiceController');
+        redirect('backOffice/ServiceController');
     }
 
     public function edit($id) {
         $data['service'] = $this->Service_model->getById($id);
         $data['services'] = $this->Service_model->getAll();
-        $this->load->view('service_view', $data);
+        $this->load->view('backOffice/service_view', $data);
     }
 
     public function delete($id) {
         $this->Service_model->delete($id);
-        redirect('ServiceController');
+        redirect('backOffice/ServiceController');
     }
 }
 ?>

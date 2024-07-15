@@ -11,8 +11,8 @@
   <?php } ?>
 
   <form action="<?php echo base_url("backOffice/Login/login") ?>">
-    <input type="text" name="nom" id="">
-    <input type="text" name="password" id="">
+    <input type="text" name="nom" value="admin">
+    <input type="password" name="mot_de_passe" value="admin">
     <input type="submit" value="Go">
   </form>
 </body>

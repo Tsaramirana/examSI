@@ -5,10 +5,11 @@ class Login extends CI_Controller {
 
   public function __construct() {
     parent::__construct();
-    
+
     $this->load->model('type_model');
     $this->load->model('voiture_model');
     $this->load->library('session');
+    $this->load->helper('url');
   }
 
 	public function to_login_page() {
@@ -35,8 +36,7 @@ class Login extends CI_Controller {
       $this->session->set('user', $voiture);
       $this->load->view('frontOffice/acceuil.php', $data);
 
-      $this->load->helper('url');
-      redirect('frontOffice/Acceuil/to_acceuil_page');
+      // redirect('frontOffice/Acceuil/to_acceuil_page');
     }
   }
 

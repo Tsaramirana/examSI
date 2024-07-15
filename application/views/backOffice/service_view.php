@@ -8,7 +8,7 @@
 
     <!-- Formulaire d'insertion/modification -->
     <h2><?php echo isset($service) ? 'Modifier Service' : 'Ajouter Service'; ?></h2>
-    <form action="<?php echo site_url('ServiceController/save'); ?>" method="post">
+    <form action="<?php echo site_url('backOffice/ServiceController/save'); ?>" method="post">
         <input type="hidden" name="id" value="<?php echo isset($service) ? $service['id'] : ''; ?>">
         <label for="nom">Nom:</label>
         <input type="text" name="nom" value="<?php echo isset($service) ? $service['nom'] : ''; ?>" required>
@@ -42,12 +42,14 @@
                 <td><?php echo $service['duree']; ?></td>
                 <td><?php echo $service['prix']; ?></td>
                 <td>
-                    <a href="<?php echo site_url('ServiceController/edit/'.$service['id']); ?>">Modifier</a>
-                    <a href="<?php echo site_url('ServiceController/delete/'.$service['id']); ?>" onclick="return confirm('Are you sure you want to delete this item?');">Supprimer</a>
+                    <a href="<?php echo site_url('backOffice/ServiceController/edit/'.$service['id']); ?>">Modifier</a>
+                    <a href="<?php echo site_url('backOffice/ServiceController/delete/'.$service['id']); ?>" onclick="return confirm('Are you sure you want to delete this item?');">Supprimer</a>
                 </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
+
+    <a href="<?php echo site_url('backOffice/HoraireController'); ?>">Date de reference</a>
 </body>
 </html>

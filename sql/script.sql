@@ -41,6 +41,11 @@ create table service (
     CHECK (prix >= 0)
 );
 
+insert into service values (default, 'Réparation simple', '01:00:00', 150000);
+insert into service values (default, 'Réparation standard', '02:00:00', 250000);
+insert into service values (default, 'Réparation complexe', '08:00:00', 800000);
+insert into service values (default, 'Entretien', '02:30:00', 800000);
+
 create table rendezVous (
     id int primary key auto_increment,
     dateHeureDebut TIMESTAMP not null default now(),
@@ -60,6 +65,8 @@ create table horaire (
     fin time not null,
     dateReference date
 );
+
+insert into horaire values ('08:00:00', '18:00:00', null);
 
 create table devis (
     id int primary key auto_increment,

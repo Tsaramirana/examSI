@@ -66,10 +66,16 @@ create table horaire (
     dateReference date
 );
 
-insert into horaire values ('08:00:00', '18:00:00', null);
+insert into horaire values ('08:00:00', '18:00:00', now());
 
 create table devis (
     id int primary key auto_increment,
     idRV int REFERENCES rendezVous(id),
     datePayement TIMESTAMP
 );
+
+ALTER TABLE type CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
+ALTER TABLE voiture CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
+ALTER TABLE service CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
+ALTER TABLE rendezVous CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
+ALTER TABLE temporaireRv CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;

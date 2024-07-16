@@ -173,5 +173,25 @@ class Rendezvous_model extends CI_Model {
         $this->db->where('id', $id);
         return $this->db->delete($this->table);
     }
+
+    public function getAllEvents() {
+        $this->db->select('id, dateHeureDebut as start, dateHeureDebut as end, idService');
+        $query = $this->db->get($this->table);
+        $result = $query->result_array();
+    
+        $events = array();
+        foreach ($result as $row) {
+            $service = $this->Service_model->getById($row['idService']);
+            $events[] = array(
+                'id' => $row['id'],
+                'start' => $row['start'],
+                'end' => $this->addTime($row['start'], $service['duree']),
+                'title' => $service['nom']
+            );
+        }
+    
+        return $events;
+    }
+    
 }
 ?>

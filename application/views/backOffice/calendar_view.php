@@ -134,5 +134,9 @@
             }
         });
     </script>
+
+    <?php 
+        $this->load->view('template/footer.php');
+    ?>
 </body>
 </html>

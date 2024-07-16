@@ -33,6 +33,7 @@
 #text-accueil-content{
     margin-left: 5px;
     margin-top: 10%;
+    animation: fade-in-top 2s;
 }
 #rdv-form{
     margin-top: 2%;

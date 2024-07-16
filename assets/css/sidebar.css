@@ -1,0 +1,32 @@
+#adminsidebar {
+    background-color: rgb(236, 236, 236);
+    height: 100vh;
+    margin-left: -15px;
+    border-top-right-radius: 25px;
+}
+#adminsidebar ul {
+    list-style-type: none !important;
+    padding: 0;
+}
+#adminsidebar a {
+    text-decoration: none;
+    color: #18192E;
+    padding-left: 10%;
+}
+#adminsidebar #logo {
+    height: 150px;
+    width: 250px;
+    display: flex;
+    justify-content:end;
+}
+#adminsidebar #logo img {
+    width: 250px !important;
+}
+#adminsidebar-buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+

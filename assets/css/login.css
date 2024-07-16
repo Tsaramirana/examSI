@@ -8,6 +8,7 @@
 #login-content {
     padding-left: 5%;
     margin-top: 5%;
+    animation: fade-in-left 3s;
 }
 #login-content p {
     color: rgb(177, 177, 177);

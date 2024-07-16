@@ -77,5 +77,8 @@
         <!-- FORMULAIRE -->
     </div>
    </div> 
+    <?php 
+        $this->load->view('template/footer.php');
+    ?>
 </body>
 </html>

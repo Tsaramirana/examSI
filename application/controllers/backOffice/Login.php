@@ -16,8 +16,8 @@ class Login extends CI_Controller {
   }
 
   public function login() {
-    $nom = $this->input->get('nom');
-    $mot_de_passe = $this->input->get('mot_de_passe');
+    $nom = $this->input->post('nom');
+    $mot_de_passe = $this->input->post('mot_de_passe');
 
     if ($this->admin_model->isAdmin($nom, $mot_de_passe)) {
       $this->session->set("admin", "admin");

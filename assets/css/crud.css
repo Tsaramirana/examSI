@@ -1,0 +1,33 @@
+#CRUD-table table thead, #CRUD-table table tbody, .p-label {
+    color: rgb(230, 227, 227);
+}
+#crud-container {
+    margin-top: 5%;
+}
+#crud-container .col-md-12 {
+    margin-top: 2%;
+}
+#crud-formulaire {
+    background-color: rgba(245, 245, 245, 0.187);
+    height: 500px;
+    padding-top: 5%;
+    border-radius: 10px;
+}
+#CRUD-table {
+    height: 400px;
+    overflow: auto;
+}
+#CRUD-table::-webkit-scrollbar {
+    width: 8px;
+}
+#CRUD-table::-webkit-scrollbar-track {
+    background: none;
+}
+#CRUD-table::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 4px;
+}
+#CRUD-table table {
+    border-collapse: collapse;
+}
+

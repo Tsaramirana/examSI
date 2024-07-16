@@ -189,6 +189,7 @@ class Rendezvous_model extends CI_Model {
                 'title' => $service['nom']
             );
         }
+        
     
         return $events;
     }
@@ -200,6 +201,15 @@ class Rendezvous_model extends CI_Model {
         $this->db->where('rendezVous.idVoiture', $idVoiture);
         $query = $this->db->get();
         return $query->result_array();
+    }
+
+    public function get_rendezvous_by_voiture($idVoiture) {
+        $this->db->select('service.nom as serviceNom, service.prix, rendezVous.dateHeureDebut');
+        $this->db->from('rendezVous');
+        $this->db->join('service', 'rendezVous.idService = service.id');
+        $this->db->where('rendezVous.idVoiture', $idVoiture);
+        $query = $this->db->get();
+        return $query->result();
     }
     
 }

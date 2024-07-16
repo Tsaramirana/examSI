@@ -25,6 +25,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Insérer</button>
         </form>
+        <a href="<?php echo site_url('backOffice/Deconnexion'); ?>">Deconnexion</a>
     </div>
 </body>
 </html>

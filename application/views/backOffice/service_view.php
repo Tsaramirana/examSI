@@ -51,5 +51,8 @@
     </table>
 
     <a href="<?php echo site_url('backOffice/HoraireController'); ?>">Date de reference</a>
+    <a href="<?php echo site_url('backOffice/Devis'); ?>">Liste des devis</a>
+    <a href="<?php echo site_url('backOffice/Calendar'); ?>">Calendrier des rendez vous</a>
+    <a href="<?php echo site_url('backOffice/Deconnexion'); ?>">Deconnexion</a>
 </body>
 </html>

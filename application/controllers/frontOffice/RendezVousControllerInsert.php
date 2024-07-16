@@ -15,8 +15,9 @@ class RendezvousControllerInsert extends CI_Controller {
 
         $user = $this->session->get('user');
         
-        if ($this->session->get("admin") == null) {
-            redirect('backOffice/Login/to_login_page');
+        if ($user == null) {
+            $this->load->helper('url');
+            redirect('frontOffice/Login/to_login_page');
         }
     }
 

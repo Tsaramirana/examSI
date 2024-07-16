@@ -29,5 +29,7 @@
     <?php else: ?>
         <p>Aucun horaire trouvé.</p>
     <?php endif; ?>
+    <a href="<?php echo site_url('backOffice/ServiceController'); ?>">Retour</a>
+    <a href="<?php echo site_url('backOffice/Deconnexion'); ?>">Deconnexion</a>
 </body>
 </html>

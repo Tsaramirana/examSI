@@ -10,6 +10,12 @@ class Calendar extends CI_Controller {
         $this->load->model('Service_model');
         $this->load->model('Voiture_model');
         $this->load->model('Horaire_model');
+        $this->load->library('Session');
+        $this->load->helper('url');
+
+        if ($this->session->get("admin") == null) {
+            redirect('backOffice/Login/to_login_page');
+        }
     }
 
     public function index() {

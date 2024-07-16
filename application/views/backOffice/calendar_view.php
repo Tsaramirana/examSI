@@ -55,16 +55,23 @@
             text-decoration: none;
             cursor: pointer;
         }
+        .formbeee {
+            margin-top: -5vh;
+        }
+        .week {
+            margin-left: 50vw;
+            color: #fd343f;
+        }
     </style>
 </head>
 <body>
     <span>Today is : </span><p id="ref_date"><?php echo $date_ref ; ?></p>
-    <h1>Cliquez sur week pour reserver un creno !</h1>
+    <h1 class="week">Cliquez sur week pour reserver un creno !</h1>
     <div id='calendar'></div>
 
     <!-- Modal for selecting car and service -->
     <div id="myModal" class="modal">
-        <div class="modal-content">
+        <div class="modal-content formbeee">
             <h1 id="temp"></h1>
             <span class="close">&times;</span>
             <form id="appointmentForm" action="<?php echo base_url('backOffice/RendezvousControllerInsert/insert'); ?>" method="POST">
@@ -85,6 +92,8 @@
             </form>
         </div>
     </div>
+    <a href="<?php echo site_url('backOffice/ServiceController'); ?>">Retour</a>
+    <a href="<?php echo site_url('backOffice/Deconnexion'); ?>">Deconnexion</a>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {

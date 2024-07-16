@@ -1,0 +1,53 @@
+#turnover-container, #graphics{
+    background-color: rgba(83, 72, 113, 0.845);
+    border-radius: 15px;
+    height: 200px;
+    margin-left: 20px;
+}
+#accueil-content {
+    overflow-y: auto;
+    height: 100vh;
+}
+#accueil-content::-webkit-scrollbar {
+    width: 8px;
+}
+#accueil-content::-webkit-scrollbar-track {
+    background: none;
+}
+#accueil-content::-webkit-scrollbar-thumb {
+    background-color: rgb(52, 49, 92);
+    border-radius: 4px;
+}
+
+#statistics2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#statistics3 {
+    margin-left:5px;
+}
+.stat2-items {
+    margin-left: -20%;
+    width: 250px;
+    height: 120px;
+    border-radius: 15px;
+    background-color: rgb(247, 245, 243);
+    padding-left: 2%;
+    transition: background-color 1s;
+}
+
+#dashboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 25px;
+}
+#dashboard h6,h1,h2,p,th,td{
+    color: rgb(226, 226, 226) !important;
+}
+.title-emphase > h1 {
+    color:  #FF2C43;
+    font-weight: 800;
+}

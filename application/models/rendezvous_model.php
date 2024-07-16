@@ -1,13 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-<<<<<<< Updated upstream
-include("service_model.php");
-include("temporairerv_model.php");
-include("horaire_model.php");
-
-=======
->>>>>>> Stashed changes
 class Rendezvous_model extends CI_Model {
 
     // Nom de la table
@@ -38,7 +31,9 @@ class Rendezvous_model extends CI_Model {
 
     // Ajouter un service
     public function insert($data) {
-        if ($this->checkCreneau($data) && $this->checkHoraire($data)) {
+        $data['idSlot'] = $this->getFreeSlotId($data);
+
+        if ($this->checkCreneau($data) && $this->checkHoraire($data) && $data['idSlot'] != 0) {
             $this->db->insert($this->table, $data);
             $insertId = $this->db->insert_id();
             $tempData['idRV'] = $insertId;
@@ -53,6 +48,9 @@ class Rendezvous_model extends CI_Model {
             } 
             if (!$this->checkHoraire($data)) {
                 throw new Exception("L'horaire choisi ne correspond pas à nos horaires!");
+            }
+            if ($data['idSlot'] == 0) {
+                throw new Exception("Plus aucun slot de libre pour cette tranche horaire!");
             }
         } 
 
@@ -103,7 +101,7 @@ class Rendezvous_model extends CI_Model {
 
     // vérifie s'il y a un créneau, true s'il y a  un créneau, false sinon
     public function checkCreneau ($data) {
-        $query = $this->db->get_where('detailrdv', array('dateDebut' => Rendezvous_model::extractDate($data['dateHeureDebut'])));
+        $query = $this->db->get_where('detailrdv', array('dateDebut' => Rendezvous_model::extractDate($data['dateHeureDebut']), 'idSlot' => $data['idSlot']));
         $rdvList = $query->result_array();
         $chosenService = (new Service_model())->getById($data['idService']);
         $dateTimeFin = Rendezvous_model::addTime($data['dateHeureDebut'], $chosenService['duree']);
@@ -123,6 +121,43 @@ class Rendezvous_model extends CI_Model {
         }
 
         return true;
+    }
+
+    public function isSlotFree ($idSlot, $data) {
+        $query = $this->db->get_where('detailrdv', array('dateDebut' => Rendezvous_model::extractDate($data['dateHeureDebut']), 'idSlot' => $idSlot));
+        $rdvList = $query->result_array();
+        $chosenService = (new Service_model())->getById($data['idService']);
+        $dateTimeFin = Rendezvous_model::addTime($data['dateHeureDebut'], $chosenService['duree']);
+
+        for ($i=0; $i < count($rdvList); $i++)
+        {
+            if (($data["dateHeureDebut"]>=$rdvList[$i]["dateHeureDebut"]&&$data["dateHeureDebut"]<=$rdvList[$i]["dateHeureFin"])
+            ||($dateTimeFin>=$rdvList[$i]["dateHeureDebut"]&&$dateTimeFin<=$rdvList[$i]["dateHeureFin"]))
+            {
+                return false;
+            }
+            else if (($rdvList[$i]["dateHeureDebut"]>=$data["dateHeureDebut"]&&$rdvList[$i]["dateHeureDebut"]<=$dateTimeFin)
+            ||($rdvList[$i]["dateHeureFin"]>=$data["dateHeureDebut"]&&$rdvList[$i]["dateHeureFin"]<=$dateTimeFin))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    } 
+
+    public function getFreeSlotId ($data) {
+        $slotList = (new Slot_model())->getAll();
+
+        $freeSlotId = 0;
+        for ($i = 0; $i < count($slotList); $i++) {
+            if ($this->isSlotFree($slotList[$i]['id'], $data)) {
+                $freeSlotId = $slotList[$i]['id'];
+                return $freeSlotId;
+            }
+        }
+
+        return $freeSlotId;
     }
 
     // vérifie l'horaire
@@ -150,13 +185,6 @@ class Rendezvous_model extends CI_Model {
     public function delete($id) {
         $this->db->where('id', $id);
         return $this->db->delete($this->table);
-    }
-
-    // Récupérer les rendez-vous par date
-    public function getByDate($date) {
-        $this->db->where('DATE(dateHeureDebut)', $date);
-        $query = $this->db->get($this->table);
-        return $query->result_array();
     }
 }
 ?>

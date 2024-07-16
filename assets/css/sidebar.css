@@ -3,6 +3,19 @@
     height: 100vh;
     margin-left: -15px;
     border-top-right-radius: 25px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+#adminsidebar::-webkit-scrollbar {
+    width: 8px;
+}
+#adminsidebar::-webkit-scrollbar-track {
+    background: none;
+}
+#adminsidebar::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 4px;
+    height: 50px;
 }
 #adminsidebar ul {
     list-style-type: none !important;
@@ -22,11 +35,14 @@
 #adminsidebar #logo img {
     width: 250px !important;
 }
-#adminsidebar-buttons{
+#adminsidebar-buttons, .admin-disconnect{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    gap: 30px;
+    gap: 20px;
+}
+.admin-disconnect{
+    margin-top: 50%;
 }
 
 

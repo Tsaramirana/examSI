@@ -4,16 +4,21 @@
             <!-- SIDEBAR -->
             <div class="col-md-2" id="adminsidebar">
                 <div class="row col-md-12" id="logo">
-                    <img src="./assets/images/logo.png" alt="">
+                    <img src="<?php echo base_url('assets/images/logo.png'); ?>">                
                 </div>
                 <div class="row col-md-12" id="adminsidebar-buttons">
-                    <a href="#" class="active-item2 sidebar-item">Services</a>
-                    <a href="heure.html" class="sidebar-item">Heure de référence</a>
-                    <a href="devis.html" class="sidebar-item">Devis</a>
-                    <a href="devis.html" class="sidebar-item">Liste RDV</a>
+                        <a href="<?php echo site_url() ?>" class="sidebar-item">Accueil</a>
+                        <a href="#" class="active-item2 sidebar-item">Services</a>
+                        <a href="<?php echo site_url() ?>" class="sidebar-item">Heure de référence</a>
+                        <a href="<?php echo site_url() ?>" class="sidebar-item">Devis</a>
+                        <a href="<?php echo site_url() ?>" class="sidebar-item">Liste RDV</a>
+                        <a href="<?php echo site_url() ?>" class="sidebar-item">Importation de données</a>
+                        <a href="<?php echo site_url() ?>" class="sidebar-item">Gestion des slots</a>
+
                 </div>
-                <div class="row col-md-12 disconnect">
-                    <a href="">Déconnexion</a>
+                <div class="row col-md-12 admin-disconnec">
+                    <a href="<?php echo site_url() ?>" onclick="return confirm('Voulez-vous vraiement réinitialiser votre base de donnée? Cette action est irréversible');">Réinitialisation</a>
+                    <a href="<?php echo site_url() ?>">Déconnexion</a>
                 </div>
             </div>
             <!-- SIDEBAR -->
@@ -55,14 +60,8 @@
                             <th></th>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Réparation simple</td>
-                                <td>1</td>
-                                <td>150 000</td>
-                            </tr>
                             <?php foreach ($services as $service): ?>
                                 <tr>
-                                    <td><?php echo $service['id']; ?></td>
                                     <td><?php echo $service['nom']; ?></td>
                                     <td><?php echo $service['duree']; ?></td>
                                     <td><?php echo $service['prix']; ?></td>
@@ -81,9 +80,3 @@
             <!-- CONTENT -->
         </div>    
     </div>
-    <script src="./assets/js/jquery.min.js"></script>
-    <script src="./assets/js/bootstrap.js"></script>
-    <script src="./assets/js/sidebar.js"></script>
-    <script src="./assets/js/npm.js"></script>
-</body>
-</html>

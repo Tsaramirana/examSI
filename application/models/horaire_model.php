@@ -12,6 +12,12 @@ class Horaire_model extends CI_Model {
         $this->load->database();
     }
 
+    // Récupérer l'horaire
+    public function getHoraire() {
+        $query = $this->db->get($this->table);
+        return $query->row_array();
+    }
+
     // Récupérer tous les services
     public function getAll() {
         $query = $this->db->get($this->table);
@@ -36,28 +42,29 @@ class Horaire_model extends CI_Model {
         return $this->db->update($this->table, $data);
     }
 
-    // Mettre à jour le champ 'debut'
-    public function updateDebut($id, $debut) {
-        $this->db->where('id', $id);
-        return $this->db->update($this->table, array('debut' => $debut));
-    }
-
-    // Mettre à jour le champ 'fin'
-    public function updateFin($id, $fin) {
-        $this->db->where('id', $id);
-        return $this->db->update($this->table, array('fin' => $fin));
-    }
-
-    // Mettre à jour le champ 'dateReference'
-    public function updateDateReference($id, $dateReference) {
-        $this->db->where('id', $id);
-        return $this->db->update($this->table, array('dateReference' => $dateReference));
-    }
-
     // Supprimer un service
     public function delete($id) {
         $this->db->where('id', $id);
         return $this->db->delete($this->table);
     }
+
+    // Mettre à jour le début
+    public function updateDebut($debut) {
+        $this->db->update($this->table, array('debut' => $debut));
+        return $this->db->affected_rows();
+    }
+
+    // Mettre à jour la fin
+    public function updateFin($fin) {
+        $this->db->update($this->table, array('fin' => $fin));
+        return $this->db->affected_rows();
+    }
+
+    // Mettre à jour la date de référence
+    public function updateDateReference($dateReference) {
+        $this->db->update($this->table, array('dateReference' => $dateReference));
+        return $this->db->affected_rows();
+    }
+
 }
 ?>

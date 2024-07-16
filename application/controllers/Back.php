@@ -5,11 +5,15 @@ class Back extends CI_Controller {
     public function __construct() {
         parent::__construct();
     }
-
+    /***********DASHBOARD***************/
+    public function to_dashboard(){
+        $data = array();
+        $this->load_resources('backOffice/accueil', $data);
+    }
     /*********SERVICE*******************/
     public function crudService() {
         $data['services'] = $this->service_model->getAll();
-        $this->load_resources('crudService');
+        $this->load_resources('backOffice/crudService', $data);
     }
 
     public function save() {
@@ -52,7 +56,7 @@ class Back extends CI_Controller {
 
         if ($this->admin_model->isAdmin($nom, $mot_de_passe)) {
             $this->session->set("admin", "admin");
-            $this->crudService();
+            $this->to_dashboard();
         }
         else {
         $data['error'] = 'Informations incorrects, veuiller reessayer!';
@@ -63,8 +67,8 @@ class Back extends CI_Controller {
     /********************UTILITAIRES****************/
     public function load_resources($section, $data=array()) {
         $data['contents'] = $section;
-        $data['css'] = array('bootstrap.css', 'index.css', 'login.css', 'accueil.css', 'rdv.css', 'sidebar.css', 'crud.css', 'adminLogin.css','heure.css','devis.css');
-        $data['js'] = array('jquery.min.js','bootstrap.js', 'sidebar.js','npm.js', 'pagination.js', 'devis.js');
+        $data['css'] = array('bootstrap.css', 'index.css', 'login.css', 'accueil.css', 'rdv.css', 'sidebar.css', 'crud.css', 'adminLogin.css','heure.css','devis.css', 'import.css', 'main.min.css', 'dashboard.css');
+        $data['js'] = array('jquery.min.js','bootstrap.js', 'sidebar.js','npm.js', 'pagination.js', 'devis.js','dashboard.js');
         $this->load->view('templates/template', $data);	
     }
 }

@@ -15,6 +15,7 @@
                     <a href="#" class="active-item2 sidebar-item">Date de référence</a>
                     <a href="<?php echo site_url('backOffice/Devis'); ?>" class="sidebar-item">Devis</a>
                     <a href="<?php echo site_url('backOffice/Calendar'); ?>" class="sidebar-item">Liste RDV</a>
+                    <a href="<?php echo site_url('backOffice/DataImport'); ?>" class="active-item2 sidebar-item">Importation de données</a>
                 </div>
                 <div class="row col-md-12 disconnect">
                     <a href="<?php echo site_url('backOffice/Partie2/supprimer_donnees'); ?>" onclick="return confirm('Voulez-vous vraiement réinitialiser votre base de donnée? Cette action est irréversible');">Réinitialisation</a>

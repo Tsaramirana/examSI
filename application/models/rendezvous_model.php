@@ -11,10 +11,10 @@ class Rendezvous_model extends CI_Model {
         parent::__construct();
         $this->load->database();
 
-        $this->load->model('backoffice/service_model');
-        $this->load->model('frontoffice/temporairerv_model');
-        $this->load->model('backoffice/horaire_model');
-        $this->load->model('backoffice/slot_model');
+        $this->load->model('Service_model');
+        $this->load->model('temporairerv_model');
+        $this->load->model('horaire_model');
+        $this->load->model('slot_model');
     }
 
     // Récupérer tous les services
@@ -301,7 +301,7 @@ class Rendezvous_model extends CI_Model {
         $result = $query->result_array();
     
         $events = array();
-        $this->load->model('backoffice/service_model');
+        $this->load->model('service_model');
         foreach ($result as $row) {
             $service = $this->service_model->getById($row['idService']);
             $events[] = array(

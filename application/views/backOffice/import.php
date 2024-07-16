@@ -11,12 +11,12 @@
                     <img src="<?php echo base_url('assets/images/logo.png'); ?>">                
                 </div>
                 <div class="row col-md-12" id="adminsidebar-buttons">
-                    <a href="<?php echo site_url() ?>" class="sidebar-item">Accueil</a>
+                    <a href="<?php echo site_url('backOffice/ServiceController'); ?>" class="sidebar-item">Accueil</a>
                     <a href="#" class="sidebar-item">Services</a>
-                    <a href="<?php echo site_url() ?>" class="sidebar-item">Date de référence</a>
-                    <a href="<?php echo site_url() ?>" class="sidebar-item">Devis</a>
-                    <a href="<?php echo site_url() ?>" class="sidebar-item">Liste RDV</a>
-                    <a href="<?php echo site_url() ?>" class="active-item2 sidebar-item">Importation de données</a>
+                    <a href="<?php echo site_url('backOffice/HoraireController'); ?>" class="sidebar-item">Date de référence</a>
+                    <a href="<?php echo site_url('backOffice/Devis'); ?>" class="sidebar-item">Devis</a>
+                    <a href="<?php echo site_url('backOffice/Calendar'); ?>" class="sidebar-item">Liste RDV</a>
+                    <a href="<?php echo site_url('backOffice/DataImport'); ?>" class="active-item2 sidebar-item">Importation de données</a>
                     <a href="<?php echo site_url() ?>" class="sidebar-item">Gestion des slots</a>
                 </div>
                 <div class="row col-md-12 admin-disconnec">
@@ -42,18 +42,24 @@
             <div class="row col-md-12">
                 <!-- FORMULAIRE -->
                 <div class="col-md-8" id="import-form">
-                    <form method="post" action="" enctype="multipart/form-data">
+                    
+                    <form method="post" action="<?php echo site_url('backOffice/DataImport/service'); ?>" enctype="multipart/form-data">
                         <input type="hidden" name="id" value="">
                         <div class="form-group">
                             <label for="service">Services :  </label>
                             <input type="file" id="exampleInputFile" name="service" class="form-control">
                         </div>
+                        <button type="submit" class="btn btn-default action-button">Valider</button>
+                    </form>     
+
+                    <form method="post" action="<?php echo site_url('backOffice/DataImport/travaux'); ?>" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="travaux">Travaux :  </label>
                             <input type="file" id="exampleInputFile" name="travaux" class="form-control">
                         </div>
                         <button type="submit" class="btn btn-default action-button">Valider</button> 
-                    </form>     
+                    </form> 
+                        
                 </div>
                 <!-- FORMULAIRE -->
             </div>

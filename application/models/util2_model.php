@@ -7,6 +7,8 @@ class Util2_model extends CI_Model {
     public function __construct() {
         parent::__construct();
         $this->load->database();
+        // Charger le modèle Rendezvous_model
+        $this->load->model('Rendezvous_model');
     }
 
     // Fonction pour convertir un fichier CSV en tableau associatif
@@ -87,12 +89,12 @@ class Util2_model extends CI_Model {
             return false;
         } else {
             try {
-                // Charger le modèle RendezVous_model
-                $this->load->model('RendezVous_model');
-                
+                echo "0";
+                echo "1";
                 // Récupérer tous les éléments de rendez-vous depuis temporaireCSV
                 $query = $this->db->get('temporaireCSV');
                 $rendezVous = $query->result_array();
+                echo "2";
     
                 // Boucler sur chaque rendez-vous et les insérer
                 foreach ($rendezVous as $row) {
@@ -102,7 +104,7 @@ class Util2_model extends CI_Model {
                         'idVoiture' => $this->getVoitureId($row['voiture']),
                         'prix' => $row['montant']
                     );
-                    $this->RendezVous_model->insert($data);
+                    $this->Rendezvous_model->insert($data);
                 }
             } catch (Exception $e) {
                 $this->db->trans_rollback();

@@ -11,9 +11,12 @@ class Devis_detail extends CI_Model {
 
     // Récupérer tous les devis avec les détails des rendez-vous
     public function getAllDetails() {
-        $this->db->select('devis.id as devis_id, devis.datePayement, rendezVous.id as rendezvous_id, rendezVous.dateHeureDebut, rendezVous.idService, rendezVous.idVoiture, rendezVous.idSlot');
+        $this->db->select('devis.id as devis_id, devis.datePayement, rendezVous.id as rendezvous_id, rendezVous.dateHeureDebut, rendezVous.idService, rendezVous.idVoiture, rendezVous.idSlot, voiture.numero as numero, type.nom as type, service.nom as service, service.prix as prix');
         $this->db->from('devis');
         $this->db->join('rendezVous', 'devis.idRV = rendezVous.id');
+        $this->db->join('voiture', 'rendezVous.idVoiture = voiture.id');
+        $this->db->join('type', 'voiture.idType = type.id');
+        $this->db->join('service', 'rendezVous.idService = service.id');
         $query = $this->db->get();
         return $query->result_array();
     }

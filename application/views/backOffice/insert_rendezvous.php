@@ -23,9 +23,14 @@
                     <?php endforeach; ?>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary">Insérer</button>
+            <?php 
+        $this->load->view('template/footer.php');
+    ?><button type="submit" class="btn btn-primary">Insérer</button>
         </form>
         <a href="<?php echo site_url('backOffice/Deconnexion'); ?>">Deconnexion</a>
     </div>
+    <?php 
+        $this->load->view('template/footer.php');
+    ?>
 </body>
 </html>

@@ -26,5 +26,8 @@
             <?php endforeach; ?>
         </tbody>
     </table>
+    <?php 
+        $this->load->view('template/footer.php');
+    ?>
 </body>
 </html>

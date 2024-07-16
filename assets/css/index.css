@@ -2,6 +2,46 @@
     font-family: racing;
     src: url("../font/Race\ Sport.ttf");
 }
+@keyframes fade-in-bottom {
+    0% {
+        opacity: 0;
+        margin-bottom: -15%;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fade-in-left {
+    0% {
+        opacity: 0;
+        margin-left: -15%;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fade-in-right {
+    0% {
+        opacity: 0;
+        margin-right: -15%;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes zoom-in {
+    0% {
+        scale: -5%;
+        opacity: 0.5;
+    } 100% {
+        opacity: 1;
+    }
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
 li a, .random-text {
     color: white;
 }
@@ -13,10 +53,10 @@ body{
     background-repeat: no-repeat; 
     background-attachment : fixed;
     background-position: center;
+    /* overflow: hidden;  */
 }
 #index-body {
     background-image: url("../images/background2.png");
-    overflow: hidden; 
 }
 #right {
     margin-top: 5%;
@@ -27,6 +67,7 @@ body{
     justify-content:space-between;
     margin-top: 15%;
     margin-left: -7%;
+    animation: fade-in-bottom 3s;
 }
 #content-text {
     margin-top: 10%;
@@ -34,17 +75,20 @@ body{
 }
 #content-button {
     margin-left: 1%;
+    animation: fade-in-left 2s;
 }
 #content-title, .intrigue {
     font-family: racing;
     color: white;
     line-height: 50px;
+    animation: fade-in-left 2s;
 }
 #image-right {
     width: 1200px;
     border-style: dashed;
     margin-left: -55%;
     margin-top: -10%;
+    animation: zoom-in 2s;
 }
 #navbar {
     background-color: #18192E;
@@ -74,6 +118,9 @@ body{
     height: 200px;
     width: 150px;
     text-align: center;
+}
+.random-text {
+    animation: fade-in-left 2s;
 }
 .active-item {
     background-color: none !important;

@@ -1,0 +1,1 @@
+mysql -u ETU002601 -h 172.80.237.54 -D db_info16a_ETU002601 -p

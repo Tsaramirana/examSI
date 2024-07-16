@@ -51,7 +51,7 @@ create table rendezVous (
     idService int REFERENCES service(id),
     idVoiture int references voiture (id),
     idSlot int references Slot(id),
-    prix double ,
+    prix double,
     check (prix>=0)
 );
 
@@ -85,10 +85,3 @@ CREATE TABLE temporaireCSV (
 
 
 insert into horaire values ('08:00:00', '18:00:00', now());
-
-
-ALTER TABLE type CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
-ALTER TABLE voiture CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
-ALTER TABLE service CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
-ALTER TABLE rendezVous CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
-ALTER TABLE temporaireRv CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;

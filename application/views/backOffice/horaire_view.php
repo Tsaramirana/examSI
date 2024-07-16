@@ -12,11 +12,12 @@
                 </div>
                 <div class="row col-md-12" id="adminsidebar-buttons">
                     <a href="<?php echo site_url('backOffice/ServiceController'); ?>" class="sidebar-item">Services</a>
-                    <a href="#" class="active-item2 sidebar-item">Heure de référence</a>
+                    <a href="#" class="active-item2 sidebar-item">Date de référence</a>
                     <a href="<?php echo site_url('backOffice/Devis'); ?>" class="sidebar-item">Devis</a>
                     <a href="<?php echo site_url('backOffice/Calendar'); ?>" class="sidebar-item">Liste RDV</a>
                 </div>
                 <div class="row col-md-12 disconnect">
+                    <a href="<?php echo site_url('backOffice/Partie2/supprimer_donnees'); ?>" onclick="return confirm('Voulez-vous vraiement réinitialiser votre base de donnée? Cette action est irréversible');">Réinitialisation</a>
                     <a href="<?php echo site_url('backOffice/Deconnexion'); ?>">Déconnexion</a>
                 </div>
             </div>

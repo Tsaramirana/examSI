@@ -6,9 +6,9 @@ class HoraireController extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('Horaire_model');
-        $this->load->library('Session');
         $this->load->helper('url');
-
+        
+        $this->load->library('Session');
         if ($this->session->get("admin") == null) {
             redirect('backOffice/Login/to_login_page');
         }

@@ -12,8 +12,7 @@ create table type (
     id int primary key auto_increment,
     nom VARCHAR(50) not null
 );
-
-insert into type (nom) values ('legere');  
+  
 insert into type (nom) values ('4x4');  
 insert into type (nom) values ('utilitaire');  
 
@@ -51,7 +50,9 @@ create table rendezVous (
     dateHeureDebut TIMESTAMP not null default now(),
     idService int REFERENCES service(id),
     idVoiture int references voiture (id),
-    idSlot int references Slot(id)
+    idSlot int references Slot(id),
+    prix double ,
+    check (prix>=0)
 );
 
 create table temporaireRv (
@@ -60,19 +61,31 @@ create table temporaireRv (
     dateHeureFin TIMESTAMP not null
 );
 
-create table horaire (
-    debut time  not null ,
-    fin time not null,
-    dateReference date
-);
-
-insert into horaire values ('08:00:00', '18:00:00', now());
 
 create table devis (
     id int primary key auto_increment,
     idRV int REFERENCES rendezVous(id),
     datePayement TIMESTAMP
 );
+
+create table horaire (
+    debut time  not null ,
+    fin time not null,
+    dateReference date
+);
+
+CREATE TABLE temporaireCSV (
+    voiture VARCHAR(10),
+    type_voiture VARCHAR(50),
+    datetime_rdv DATETIME,
+    type_service VARCHAR(50),
+    montant DECIMAL(10, 2),
+    date_paiement DATE
+);
+
+
+insert into horaire values ('08:00:00', '18:00:00', now());
+
 
 ALTER TABLE type CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
 ALTER TABLE voiture CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;

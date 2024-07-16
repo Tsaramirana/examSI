@@ -20,7 +20,25 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('landing_page.php');
+		// $this->load->view('landing_page.php');
+		$this->load->model('util_model');
+		// $this->util_model->resetTables();
+		// $filename = 'H:/1-IMPORT CSV/import-csv-projet-s4 - service.csv';
+		// if ($this->util_model->importCsvToDatabase($filename)) {
+		// 	echo "Importation réussie.";
+		// } else {
+		// 	echo "Erreur lors de l'importation.";
+		// }
+
+		$this->load->model('Util2_model');
+		$filename = 'C:/Users/PC/Downloads/1-IMPORT CSV/import-csv-projet-s4 - travaux.csv';
+		$this->Util2_model->processImport($filename);
+
+		// if ($result) {
+		// 	echo "Échec de l'importation.";
+		// } else {
+		// 	echo "Importation réussie.";
+		// }
 	}	
 
 	public function test () 
@@ -31,6 +49,5 @@ class Welcome extends CI_Controller {
 		// $this->load->library('pdf');
         // $this->pdf->GeneratePDFForVoiture('100');
 
-		echo sha1('admin');
 	}
 }

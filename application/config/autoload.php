@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('database');
+$autoload['libraries'] = array('database', 'session');
 
 /*
 | -------------------------------------------------------------------
@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array();
+$autoload['model'] = array('type_model', 'voiture_model','devis_model', 'temporairerv_model','service_model', 'admin_model', 'rendezvous_model', 'slot_model', 'horaire_model');

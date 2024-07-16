@@ -1,0 +1,67 @@
+#accueil-body, #accueil-container {
+    background-color: #18192E !important;
+}
+#sidebar {
+    background-color: rgb(236, 236, 236);
+    height: 100vh;
+    margin-left: -15px;
+    border-top-right-radius: 25px;
+}
+#sidebar a {
+    text-decoration: none;
+    color: #18192E;
+    padding-left: 10%;
+}
+#sidebar #logo {
+    height: 150px;
+    width: 250px;
+    display: flex;
+    justify-content:end;
+}
+#sidebar #logo img {
+    width: 250px !important;
+}
+#sidebar-buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 50px;
+}
+#accueil-content {
+    background-color: #18192E;
+}
+#text-accueil-content{
+    margin-left: 5px;
+    margin-top: 10%;
+    animation: fade-in-top 2s;
+}
+#rdv-form{
+    margin-top: 2%;
+}
+#rdv-form button {
+    margin-top: 15px;
+    width: 250px;
+}
+#text-accueil-content p,
+#rdv-form label {
+    color: white;
+}
+.disconnect {
+    margin-top: 150% !important;
+}
+.title-emphase {
+    color:  #FF2C43;
+    font-weight: 800;
+}
+.sidebar-item {
+    transition: 0.3s ease-in-out all;
+}
+.active-item2, .sidebar-item:hover{
+    background-color: #18192E;
+    width: 500px;
+    height: 40px;
+    border-radius: 30px;
+    padding-left: 15px;
+    color: white !important;
+    padding-top: 10px;
+}

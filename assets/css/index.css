@@ -1,0 +1,132 @@
+@font-face {
+    font-family: racing;
+    src: url("../font/Race\ Sport.ttf");
+}
+@keyframes fade-in-bottom {
+    0% {
+        opacity: 0;
+        margin-bottom: -15%;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fade-in-left {
+    0% {
+        opacity: 0;
+        margin-left: -15%;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fade-in-right {
+    0% {
+        opacity: 0;
+        margin-right: -15%;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes zoom-in {
+    0% {
+        scale: -5%;
+        opacity: 0.5;
+    } 100% {
+        opacity: 1;
+    }
+}
+
+li a, .random-text {
+    color: white;
+}
+.lead {
+    font-size: 15px;
+}
+body{
+    background-size : cover; 
+    background-repeat: no-repeat; 
+    background-attachment : fixed;
+    background-position: center;
+    overflow: hidden; 
+}
+#index-body {
+    background-image: url("../images/background2.png");
+}
+#right {
+    margin-top: 5%;
+}
+#statistiques {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    margin-top: 15%;
+    margin-left: -7%;
+    animation: fade-in-bottom 3s;
+}
+#content-text {
+    margin-top: 10%;
+    margin-left: 1%;
+}
+#content-button {
+    margin-left: 1%;
+    animation: fade-in-left 2s;
+}
+#content-title, .intrigue {
+    font-family: racing;
+    color: white;
+    line-height: 50px;
+    animation: fade-in-left 2s;
+}
+#image-right {
+    width: 1200px;
+    border-style: dashed;
+    margin-left: -55%;
+    margin-top: -10%;
+    animation: zoom-in 2s;
+}
+#navbar {
+    background-color: #18192E;
+    width: 100vw;
+    height: 70px;
+}
+#navbar #logo img{
+    margin-top: -3%;
+    margin-left: -5%;
+    width: 250px;
+}
+#nav-bar-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 1%;
+}
+.btn {
+    border-style: none;
+    border-radius: 0%;
+}
+.action-button, .statistiques-item {
+    background-color: #FF2C43;
+    color: white;
+    font-weight: 700;
+}
+.statistiques-item  {
+    height: 200px;
+    width: 150px;
+    text-align: center;
+}
+.random-text {
+    animation: fade-in-left 2s;
+}
+.active-item {
+    background-color: none !important;
+    border: #FF2C43 solid 1px;
+}
+.active a {
+    background-color: none !important; 
+}
+.emphase{
+    color: #FF2C43 !important;
+    text-decoration: underline;
+    font-weight: 600;
+}

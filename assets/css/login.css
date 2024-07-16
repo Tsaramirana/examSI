@@ -1,0 +1,83 @@
+#login-body{
+    background-image: url("../images/turbo.jpg");
+}
+#login-body .container-fluid {
+    background-image: linear-gradient(to right, #0d0e1f,  #18192eef, rgba(61, 60, 60, 0.244));
+    height: 100vh;
+}
+#login-content {
+    padding-left: 5%;
+    margin-top: 5%;
+    animation: fade-in-left 3s;
+}
+#login-content p {
+    color: rgb(177, 177, 177);
+}
+#navbar-login #logo {
+    margin-top: -3%;
+    margin-left: -5%;
+    width: 150px;
+}
+#nav-bar-buttons {
+    margin-top: 2%;
+}
+#login-content .col-md-5 {
+    margin-top: 2%;
+}
+.floating-label {
+    position: relative;
+    margin-bottom: 20px;
+    background-color: #201d35bf;
+    border-radius: 10px;
+}
+.floating-label select, .floating-label input{
+    width: 100%;
+    padding: 10px 5px;
+    display: block;
+    border: none;
+    background: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    color: white;
+    margin-left: 15px;
+}
+.floating-label select option {
+    background-color: black;
+}
+.floating-label input:focus,  .floating-label select:focus{
+    outline: none;
+}
+.floating-label label {
+    color: #999;
+    font-size: 12px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 15px;
+    top: 10px;
+    transition: 0.2s ease all;
+}
+.floating-label input:focus ~ label,
+.floating-label input:valid ~ label,
+.floating-label select:focus ~ label,
+.floating-label select:valid ~ label {
+    top: -20px;
+    font-size: 12px;
+    color: #f0f0f0;
+}
+.floating-label select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.floating-label select::after {
+    content: '^';
+    font-size: 12px;
+    color: #999;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}

@@ -1,10 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+<<<<<<< Updated upstream
 include("service_model.php");
 include("temporairerv_model.php");
 include("horaire_model.php");
 
+=======
+>>>>>>> Stashed changes
 class Rendezvous_model extends CI_Model {
 
     // Nom de la table
@@ -16,6 +19,11 @@ class Rendezvous_model extends CI_Model {
         $this->load->database();
     }
 
+    // Récupérer les services pour un utilisateur
+    public function getAllForUser($idUser){
+        $query = $this->db->get_where($this->table, array('idVoiture' => $idUser));
+        return $query->result_array();
+    }
     // Récupérer tous les services
     public function getAll() {
         $query = $this->db->get($this->table);
@@ -49,6 +57,19 @@ class Rendezvous_model extends CI_Model {
         } 
 
         return 0;
+    }
+
+    static function combineDateTime($date_input, $time_input) {
+        // Créer un objet DateTime pour la date
+        $date = new DateTime($date_input);
+
+        // Récupérer l'heure au format H:i:s à partir du champ de l'heure
+        $time = date('H:i:s', strtotime($time_input));
+
+        // Fusionner la date et l'heure en une seule valeur
+        $datetime_combined = $date->format('Y-m-d') . ' ' . $time;
+
+        return $datetime_combined;
     }
 
     static function addTime ($timestamp, $heure_et_minute) {

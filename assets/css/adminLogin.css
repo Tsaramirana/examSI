@@ -1,0 +1,8 @@
+#adminLogin-body{
+    background-image: url("../images/Q124111_1.jpg");
+}
+#adminLogin-body .container-fluid {
+    background-image: linear-gradient(to right,#2a2b41, #18192eef, rgba(61, 60, 60, 0.244));
+    height: 100vh;
+}
+

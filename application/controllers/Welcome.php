@@ -18,10 +18,19 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+<<<<<<< Updated upstream
 	public function index()
 	{
 		$this->load->view('test.php');
 	}	
+=======
+    public function index($section = 'index', $data=array()) {
+        $data['contents'] = $section;
+        $data['css'] = array('bootstrap.css', 'index.css', 'login.css', 'accueil.css', 'rdv.css', 'sidebar.css', 'crud.css', 'adminLogin.css','heure.css','devis.css');
+        $data['js'] = array('jquery.min.js','bootstrap.js', 'sidebar.js','npm.js', 'pagination.js', 'devis.js');
+        $this->load->view('templates/template', $data);
+    }  
+>>>>>>> Stashed changes
 
 	public function test () 
 	{	

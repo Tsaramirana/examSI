@@ -192,6 +192,15 @@ class Rendezvous_model extends CI_Model {
     
         return $events;
     }
+
+    public function getByVoitureId($idVoiture) {
+        $this->db->select('rendezVous.*, service.nom as service_nom');
+        $this->db->from('rendezVous');
+        $this->db->join('service', 'rendezVous.idService = service.id');
+        $this->db->where('rendezVous.idVoiture', $idVoiture);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
     
 }
 ?>

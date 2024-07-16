@@ -19,7 +19,11 @@ class RendezvousControllerInsert extends CI_Controller {
     }
 
     public function insert() {
-        $idVoiture = $this->session->get('user')['id']; // Récupère l'ID de la voiture depuis la session
+        if ($this->input->post('fromcalendar')=='ok') {
+            $idVoiture = $this->input->post('idVoiture');
+        }else{
+            $idVoiture = $this->session->get('user')['id']; // Récupère l'ID de la voiture depuis la session
+        }
         $data = array(
             'dateHeureDebut' => $this->input->post('dateHeureDebut'),
             'idService' => $this->input->post('idService'),

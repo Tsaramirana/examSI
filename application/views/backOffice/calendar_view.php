@@ -59,18 +59,26 @@
 </head>
 <body>
     <span>Today is : </span><p id="ref_date"><?php echo $date_ref ; ?></p>
+    <h1>Cliquez sur week pour reserver un creno !</h1>
     <div id='calendar'></div>
 
     <!-- Modal for selecting car and service -->
     <div id="myModal" class="modal">
         <div class="modal-content">
+            <h1 id="temp"></h1>
             <span class="close">&times;</span>
             <form id="appointmentForm" action="<?php echo base_url('backOffice/RendezvousControllerInsert/insert'); ?>" method="POST">
+                <input type="hidden" name="fromcalendar" value="ok">
                 <input type="hidden" id="dateHeureDebut" name="dateHeureDebut">
                 <label for="idService">Service:</label>
                 <select id="idService" name="idService">
                     <?php foreach($services as $service): ?>
-                        <option value="<?php echo $service['id']; ?>"><?php echo $service['name']; ?></option>
+                        <option value="<?php echo $service['id']; ?>"><?php echo $service['nom']; ?></option>
+                    <?php endforeach; ?>
+                </select>
+                <select id="idVoiture" name="idVoiture">
+                    <?php foreach($voitures as $voiture): ?>
+                        <option value="<?php echo $voiture['id']; ?>"><?php echo $voiture['numero']; ?></option>
                     <?php endforeach; ?>
                 </select>
                 <button type="submit">Valider</button>
@@ -98,6 +106,7 @@
                 events: <?php echo json_encode($events); ?>,
                 dateClick: function(info) {
                     document.getElementById('dateHeureDebut').value = info.dateStr;
+                    document.getElementById("temp").innerHTML =info.dateStr;
                     modal.style.display = "block";
                 }
             });

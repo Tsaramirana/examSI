@@ -1,0 +1,21 @@
+#long-table table thead, #long-table table tbody {
+    color: white;
+}
+.hidden {
+    display: none;
+}
+#back-button {
+    background: none;
+    border-style: none;
+    color: white;
+}
+#back-button-container {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: #FF2C43 1px solid;
+    text-align: center;
+    padding-top: 12px;
+    margin-bottom: 2%;
+}

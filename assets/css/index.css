@@ -13,10 +13,10 @@ body{
     background-repeat: no-repeat; 
     background-attachment : fixed;
     background-position: center;
+    overflow: hidden; 
 }
 #index-body {
     background-image: url("../images/background2.png");
-    overflow: hidden; 
 }
 #right {
     margin-top: 5%;
